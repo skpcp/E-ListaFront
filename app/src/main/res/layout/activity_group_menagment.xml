@@ -9,4 +9,68 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.bidzis.e_lista.Group.GroupMenagmentActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Group Menagment"
+        android:id="@+id/tvMain"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Group"
+        android:id="@+id/btnAddGroup"
+        android:layout_below="@+id/tvMain"
+        android:layout_toStartOf="@+id/tvMain"
+        android:layout_alignRight="@+id/btnFindGbyID"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find by ID"
+        android:id="@+id/btnFindGbyID"
+        android:layout_below="@+id/btnDeleteGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find by Name"
+        android:id="@+id/btnFindGbyName"
+        android:layout_below="@+id/btnFindGbyID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Group"
+        android:id="@+id/btnDeleteGroup"
+        android:layout_gravity="right"
+        android:layout_below="@+id/btnAddGroup"
+        android:layout_alignRight="@+id/btnFindGbyLidersID"
+        android:layout_alignEnd="@+id/btnFindGbyLidersID" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find by Lider&apos;s ID"
+        android:id="@+id/btnFindGbyLidersID"
+        android:layout_gravity="right"
+        android:layout_below="@+id/btnFindGbyName"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find by Lider&apos;s E-mail"
+        android:id="@+id/btnFindGbyLidersEmail"
+        android:layout_below="@+id/btnFindGbyLidersID"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

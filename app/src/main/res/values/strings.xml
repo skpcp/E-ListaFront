@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">E-Lista</string>
 
-    <string name="ip">http://192.168.43.84:8080</string>
+    <string name="ip">http://192.168.42.57:8080</string>
+    <string name="add_group">Add Group</string>
 
 </resources>

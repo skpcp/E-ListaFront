@@ -27,7 +27,18 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Group.GroupMenagmentActivity"></activity>
+        <activity android:name=".Group.GroupMenagmentActivity" />
+        <activity android:name=".Group.AddGroupActivity" />
+        <activity android:name=".Group.DeleteGroupActivity" />
+        <activity android:name=".Group.FindByIDActivity" />
+        <activity android:name=".Group.FindGbyNameActivity" />
+        <activity android:name=".Group.FindGbyLidersIDActivity" />
+        <activity android:name=".Group.FindGbyLidersEmailActivity" />
+        <activity android:name=".Role.RoleMainActivity" />
+        <activity android:name=".Role.FindAllRolesActivity" />
+        <activity android:name=".Role.EditRolesNameActivity" />
+        <activity android:name=".Role.FindRoleByNameActivity" />
+        <activity android:name=".Role.DeleteRoleActivity"></activity>
     </application>
 
 </manifest>

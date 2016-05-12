@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.bidzis.e_lista.Absence.AbsenceManagement;
 import com.example.bidzis.e_lista.R;
 
 public class UserSiteActivity extends AppCompatActivity
@@ -87,6 +88,8 @@ public class UserSiteActivity extends AppCompatActivity
             Intent intent  = new Intent(UserSiteActivity.this, UsersMenagmentActivity.class);
             UserSiteActivity.this.startActivity(intent);
         } else if (id == R.id.nav_gallery) {
+            Intent intent  = new Intent(UserSiteActivity.this, AbsenceManagement.class);
+            UserSiteActivity.this.startActivity(intent);
 
 
         } else if (id == R.id.nav_slideshow) {

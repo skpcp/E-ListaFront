@@ -2,5 +2,20 @@
     <string name="app_name">E-Lista</string>
 
     <string name="ip">http://192.168.43.84:8080</string>
+    <string name="title_activity_user_site">UserSiteActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string-array name="role_array">
+        <item>Szef</item>
+        <item>Pracownik</item>
+        <item>Kierownik działu Programistów</item>
+    </string-array>
+    <string-array name="group_array">
+        <item>Pracownicy Firmy</item>
+    </string-array>
+
 
 </resources>

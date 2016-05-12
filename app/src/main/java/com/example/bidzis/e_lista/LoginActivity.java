@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bidzis.e_lista.User.UserAreaActivity;
+import com.example.bidzis.e_lista.User.UserSiteActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,57 +56,59 @@ public class LoginActivity extends AppCompatActivity {
         btSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                assert etLogin != null;
-                String login = etLogin.getText().toString();
-                assert etPassword != null;
-                String password = etPassword.getText().toString();
-                String url = getString(R.string.ip)+"/elista/uzytkownicy/pobierzPoId/1";
-                try {
-
-                    finalUserLogin.put("Username",login);
-                    finalUserLogin.put("Password",password);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-                JsonObjectRequest request = new JsonObjectRequest
-                        (Request.Method.GET, url, finalUserLogin, new Response.Listener<JSONObject>() {
-
-
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                Intent intent  = new Intent(LoginActivity.this, UserAreaActivity.class);
-                                LoginActivity.this.startActivity(intent);
-
-                            }
-                        },
-                                new Response.ErrorListener() {
-
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                                    Toast.makeText(getApplicationContext(), "Timeout",
-                                            Toast.LENGTH_LONG).show();
-                                } else if (error instanceof AuthFailureError) {
-                                    Toast.makeText(getApplicationContext(), "1",
-                                            Toast.LENGTH_LONG).show();
-                                } else if (error instanceof ServerError) {
-                                    Toast.makeText(getApplicationContext(), "Bląd serwera",
-                                            Toast.LENGTH_LONG).show();
-                                } else if (error instanceof NetworkError) {
-                                    Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
-                                            Toast.LENGTH_LONG).show();
-
-                                } else if (error instanceof ParseError) {
-                                    Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-
-
-                requestQueue.add(request);
+                Intent intent  = new Intent(LoginActivity.this, UserSiteActivity.class);
+                LoginActivity.this.startActivity(intent);
+//                assert etLogin != null;
+//                String login = etLogin.getText().toString();
+//                assert etPassword != null;
+//                String password = etPassword.getText().toString();
+//                String url = getString(R.string.ip)+"/elista/uzytkownicy/pobierzPoId/1";
+//                try {
+//
+//                    finalUserLogin.put("Username",login);
+//                    finalUserLogin.put("Password",password);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//
+//                JsonObjectRequest request = new JsonObjectRequest
+//                        (Request.Method.GET, url, finalUserLogin, new Response.Listener<JSONObject>() {
+//
+//
+//                            @Override
+//                            public void onResponse(JSONObject response) {
+//                                Intent intent  = new Intent(LoginActivity.this, UserAreaActivity.class);
+//                                LoginActivity.this.startActivity(intent);
+//
+//                            }
+//                        },
+//                                new Response.ErrorListener() {
+//
+//                            @Override
+//                            public void onErrorResponse(VolleyError error) {
+//                                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+//                                    Toast.makeText(getApplicationContext(), "Timeout",
+//                                            Toast.LENGTH_LONG).show();
+//                                } else if (error instanceof AuthFailureError) {
+//                                    Toast.makeText(getApplicationContext(), "1",
+//                                            Toast.LENGTH_LONG).show();
+//                                } else if (error instanceof ServerError) {
+//                                    Toast.makeText(getApplicationContext(), "Bląd serwera",
+//                                            Toast.LENGTH_LONG).show();
+//                                } else if (error instanceof NetworkError) {
+//                                    Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
+//                                            Toast.LENGTH_LONG).show();
+//
+//                                } else if (error instanceof ParseError) {
+//                                    Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
+//                                            Toast.LENGTH_LONG).show();
+//                                }
+//                            }
+//                        });
+//
+//
+//                requestQueue.add(request);
             }
         });
         assert tvRegisterHere != null;

@@ -36,7 +36,16 @@
         <activity android:name=".User.RegisterUserActivity" />
         <activity android:name=".User.DeactivateUserActivity" />
         <activity android:name=".User.ActivateUserActivity" />
-        <activity android:name=".User.ShowAllUsersActivity"></activity>
+        <activity android:name=".User.ShowAllUsersActivity" />
+        <activity android:name=".Absence.MainActivity" />
+        <activity android:name=".Absence.ShowAllAbsence" />
+        <activity android:name=".Absence.AbsenceManagement" />
+        <activity android:name=".Absence.FindByDate" />
+        <activity android:name=".Absence.FindByUserID" />
+        <activity android:name=".Absence.FindByUserType" />
+        <activity android:name=".Absence.FindByType" />
+        <activity android:name=".Absence.Delete" />
+        <activity android:name=".Absence.SaveAbsence"></activity>
     </application>
 
 </manifest>

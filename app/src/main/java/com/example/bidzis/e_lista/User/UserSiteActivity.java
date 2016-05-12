@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.bidzis.e_lista.R;
+import com.example.bidzis.e_lista.WorkTime.SaveWorkTime;
+import com.example.bidzis.e_lista.WorkTime.WorkTimeManagement;
 
 public class UserSiteActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -84,8 +86,11 @@ public class UserSiteActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent intent  = new Intent(UserSiteActivity.this, UsersMenagmentActivity.class);
+            Intent intent = new Intent(UserSiteActivity.this, UsersMenagmentActivity.class);
             UserSiteActivity.this.startActivity(intent);
+        } else if(id == R.id.nav_camera2){
+            Intent intent2 = new Intent(UserSiteActivity.this, WorkTimeManagement.class);
+            UserSiteActivity.this.startActivity(intent2);
         } else if (id == R.id.nav_gallery) {
 
 

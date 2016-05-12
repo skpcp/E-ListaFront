@@ -36,7 +36,14 @@
         <activity android:name=".User.RegisterUserActivity" />
         <activity android:name=".User.DeactivateUserActivity" />
         <activity android:name=".User.ActivateUserActivity" />
-        <activity android:name=".User.ShowAllUsersActivity"></activity>
+        <activity android:name=".User.ShowAllUsersActivity" />
+        <activity android:name=".WorkTime.DeleteWorkTime" />
+        <activity android:name=".WorkTime.ShowAllWorkTimes" />
+        <activity android:name=".WorkTime.ShowWorkTime" />
+        <activity android:name=".WorkTime.ShowWorkTimeResult" />
+        <activity android:name=".WorkTime.WorkTimeManagement" />
+        <activity android:name=".WorkTime.SaveWorkTime" />
+        <activity android:name=".WorkTime.SaveWorkTimeUsingPlan"></activity>
     </application>
 
 </manifest>

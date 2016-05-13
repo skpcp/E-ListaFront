@@ -23,31 +23,6 @@ public class ShowWorkTime extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_work_time);
 
-//        final EditText etIdUser = (EditText) findViewById(R.id.etIdUser);
-//        final Button btShow = (Button) findViewById(R.id.btnShowInShowWorkTime);
-//
-//        assert etIdUser != null;
-//        etIdUser.setText("0");
-//        final RequestQueue requestQueue = Volley.newRequestQueue(this);
-//
-//        etIdUser.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                etIdUser.setText("");
-//            }
-//        });
-//        assert btShow != null;
-//        btShow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String url = getString(R.string.ip)+"/elista/uzytkownicy/pobierzPoId/"+etIdUser.getText().toString();
-//
-//                JsonObjectRequest request = new JsonObjectRequest
-//                        (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-//
-//                            @Override
-//                            public void onResponse(JSONObject response) {
-//
-//                                }
+
     }
 }

@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.bidzis.e_lista.DailyPlans.DailyPlansManagement;
 import com.example.bidzis.e_lista.R;
 import com.example.bidzis.e_lista.WorkTime.SaveWorkTime;
 import com.example.bidzis.e_lista.WorkTime.WorkTimeManagement;
@@ -91,6 +92,9 @@ public class UserSiteActivity extends AppCompatActivity
         } else if(id == R.id.nav_camera2){
             Intent intent2 = new Intent(UserSiteActivity.this, WorkTimeManagement.class);
             UserSiteActivity.this.startActivity(intent2);
+        } else if(id == R.id.nav_camera3){
+            Intent intent3 = new Intent(UserSiteActivity.this, DailyPlansManagement.class);
+            UserSiteActivity.this.startActivity(intent3);
         } else if (id == R.id.nav_gallery) {
 
 

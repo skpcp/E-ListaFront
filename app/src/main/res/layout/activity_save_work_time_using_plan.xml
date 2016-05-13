@@ -9,4 +9,87 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.bidzis.e_lista.WorkTime.SaveWorkTimeUsingPlan">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dzień"
+        android:id="@+id/tvDayWorkTimeUP"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etDayWorkTimeUP"
+        android:layout_below="@+id/tvDayWorkTimeUP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Id"
+        android:id="@+id/tvIdWorkTimeUP"
+        android:layout_below="@+id/etDayWorkTimeUP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etIdWorkTimeUP"
+        android:layout_below="@+id/tvIdWorkTimeUP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/etDayWorkTimeUP"
+        android:layout_alignEnd="@+id/etDayWorkTimeUP" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:id="@+id/tvEmailWorkTimeUP"
+        android:layout_below="@+id/etIdWorkTimeUP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etEmailWorkTimeUP"
+        android:layout_below="@+id/tvEmailWorkTimeUP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/etIdWorkTimeUP"
+        android:layout_alignEnd="@+id/etIdWorkTimeUP" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zakres Pracy"
+        android:id="@+id/tvWorksDoneWorkTimeUP"
+        android:layout_below="@+id/etEmailWorkTimeUP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etWorksDoneWorkTimeUP"
+        android:layout_below="@+id/tvWorksDoneWorkTimeUP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/etEmailWorkTimeUP"
+        android:layout_alignEnd="@+id/etEmailWorkTimeUP" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zapisz"
+        android:id="@+id/btnSaveSaveWorkTimeUP"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/etWorksDoneWorkTimeUP" />
 </RelativeLayout>

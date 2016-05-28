@@ -102,7 +102,7 @@ public class ShowAllDailyPlans extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
                                     Toast.LENGTH_LONG).show();
                         } else if (error instanceof ParseError) {
-                            Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
+                            Toast.makeText(getApplicationContext(), "Błąd",
                                     Toast.LENGTH_LONG).show();
                         }
                     }

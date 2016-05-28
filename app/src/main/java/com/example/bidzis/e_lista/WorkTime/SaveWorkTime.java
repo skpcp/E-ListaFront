@@ -71,64 +71,58 @@ public class SaveWorkTime extends AppCompatActivity {
         assert btSave != null;
         final JSONObject finalWorkTimeSave = workTimeSave;
         btSave.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
-                                          String url = getString(R.string.ip) + "/elista/czasPracy/zapiszCzasPracy";
-                                          try {
-                                              assert etDay != null;
-                                              finalWorkTimeSave.put("dzien", etDay.getText().toString());
-                                              assert etId != null;
-                                              finalWorkTimeSave.put("id", etId.getText().toString());
-                                              assert etStart != null;
-                                              finalWorkTimeSave.put("rozpoczecie", etStart.getText().toString());
-                                              assert etEmail != null;
-                                              finalWorkTimeSave.put("email", etEmail.getText().toString());
-                                              assert etFinish != null;
-                                              finalWorkTimeSave.put("zakonczenie", etFinish.getText().toString());
-                                              assert etWorksDone != null;
-                                              finalWorkTimeSave.put("zakresPracy", etWorksDone.getText().toString());
-                                          } catch (JSONException e) {
-                                              e.printStackTrace();
-                                          }
+            @Override
+            public void onClick(View v) {
+                String url = getString(R.string.ip) + "/elista/czasPracy/zapiszCzasPracy";
+                try {
+                    assert etDay != null;
+                    finalWorkTimeSave.put("dzien", etDay.getText().toString());
+                    assert etId != null;
+                    finalWorkTimeSave.put("id", etId.getText().toString());
+                    assert etStart != null;
+                    finalWorkTimeSave.put("rozpoczecie", etStart.getText().toString());
+                    assert etEmail != null;
+                    finalWorkTimeSave.put("email", etEmail.getText().toString());
+                    assert etFinish != null;
+                    finalWorkTimeSave.put("zakonczenie", etFinish.getText().toString());
+                    assert etWorksDone != null;
+                    finalWorkTimeSave.put("zakresPracy", etWorksDone.getText().toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-                                          JsonObjectRequest request = new JsonObjectRequest
-                                                  (Request.Method.POST, url, finalWorkTimeSave, new Response.Listener<JSONObject>() {
-                                                      @Override
-                                                      public void onResponse(JSONObject response) {
-                                                          Toast.makeText(getApplicationContext(), "Zapisano Czas Pracy",
-                                                                  Toast.LENGTH_LONG).show();
-                                                      }
-                                                  },
-                                                          new Response.ErrorListener() {
+                JsonObjectRequest request = new JsonObjectRequest
+                        (Request.Method.POST, url, finalWorkTimeSave, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Toast.makeText(getApplicationContext(), "Zapisano Czas Pracy",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        },
+                                new Response.ErrorListener() {
 
-                                                              @Override
-                                                              public void onErrorResponse(VolleyError error) {
-                                                                  if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                                                                      Toast.makeText(getApplicationContext(), "Timeout",
-                                                                              Toast.LENGTH_LONG).show();
-                                                                  } else if (error instanceof AuthFailureError) {
-                                                                      Toast.makeText(getApplicationContext(), "1",
-                                                                              Toast.LENGTH_LONG).show();
-                                                                  } else if (error instanceof ServerError) {
-                                                                      Toast.makeText(getApplicationContext(), "Bląd serwera",
-                                                                              Toast.LENGTH_LONG).show();
-                                                                  } else if (error instanceof NetworkError) {
-                                                                      Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
-                                                                              Toast.LENGTH_LONG).show();
-
-                                                                  } else if (error instanceof ParseError) {
-                                                                      Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
-                                                                              Toast.LENGTH_LONG).show();
-                                                                  }
-                                                              }
-                                                          });
-                                          requestQueue.add(request);
-                                      }
-                                  });
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                                            Toast.makeText(getApplicationContext(), "Timeout",
+                                                    Toast.LENGTH_LONG).show();
+                                        } else if (error instanceof AuthFailureError) {
+                                            Toast.makeText(getApplicationContext(), "1",
+                                                    Toast.LENGTH_LONG).show();
+                                        } else if (error instanceof ServerError) {
+                                            Toast.makeText(getApplicationContext(), "Bląd serwera",
+                                                    Toast.LENGTH_LONG).show();
+                                        } else if (error instanceof NetworkError) {
+                                            Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
+                                                    Toast.LENGTH_LONG).show();
+                                        } else if (error instanceof ParseError) {
+                                            Toast.makeText(getApplicationContext(), "Błąd",
+                                                    Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+                requestQueue.add(request);
+            }
+        });
     }
-
-
 }

@@ -36,7 +36,8 @@
         <activity android:name=".User.RegisterUserActivity" />
         <activity android:name=".User.DeactivateUserActivity" />
         <activity android:name=".User.ActivateUserActivity" />
-        <activity android:name=".User.ShowAllUsersActivity"></activity>
+        <activity android:name=".User.ShowAllUsersActivity" />
+        <activity android:name=".User.ChangePasswordActivity"></activity>
     </application>
 
 </manifest>

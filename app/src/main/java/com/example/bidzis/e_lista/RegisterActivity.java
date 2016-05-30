@@ -79,46 +79,72 @@ public class RegisterActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                boolean flaga = false;
+                String email = etEmail.getText().toString().trim();
+                String password = etPassword.getText().toString().trim();
+                String number = etPhoneNumber.getText().toString().trim();
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                String passwordPattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}";
+                String numberPattern = "[0-9]+";
+                boolean zmiennaPomocnicza = false;
+                if (email.matches(emailPattern)) {
+                    if (password.matches(passwordPattern)) {
+                        zmiennaPomocnicza = true;
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Invalid password ", Toast.LENGTH_SHORT).show();
+                    }
+                    if (number.matches(numberPattern)) {
+                        zmiennaPomocnicza = true;
+                    } else {
+                        zmiennaPomocnicza = false;
+                        Toast.makeText(getApplicationContext(), "Invalid phone number format ", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+                }
+                if (zmiennaPomocnicza){
 
 
-                JsonObjectRequest request = new JsonObjectRequest
-                        (Request.Method.POST, url, finalUserRegister, new Response.Listener<JSONObject>() {
+                    JsonObjectRequest request = new JsonObjectRequest
+                            (Request.Method.POST, url, finalUserRegister, new Response.Listener<JSONObject>() {
 
 
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                Toast.makeText(getApplicationContext(), "Register Succesful",
-                                        Toast.LENGTH_LONG).show();
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Toast.makeText(getApplicationContext(), "Register Succesful",
+                                            Toast.LENGTH_LONG).show();
 
-                            }
-                        },
-                                new Response.ErrorListener() {
+                                }
+                            },
+                                    new Response.ErrorListener() {
 
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                                            Toast.makeText(getApplicationContext(), "Timeout",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof AuthFailureError) {
-                                            Toast.makeText(getApplicationContext(), "1",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof ServerError) {
-                                            Toast.makeText(getApplicationContext(), "Bląd serwera",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof NetworkError) {
-                                            Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
-                                                    Toast.LENGTH_LONG).show();
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                                                Toast.makeText(getApplicationContext(), "Timeout",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof AuthFailureError) {
+                                                Toast.makeText(getApplicationContext(), "1",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof ServerError) {
+                                                Toast.makeText(getApplicationContext(), "Bląd serwera",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof NetworkError) {
+                                                Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
+                                                        Toast.LENGTH_LONG).show();
 
-                                        } else if (error instanceof ParseError) {
-                                            Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
-                                                    Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof ParseError) {
+                                                Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
+                                                        Toast.LENGTH_LONG).show();
+                                            }
                                         }
-                                    }
-                                });
+                                    });
 
 
-                requestQueue.add(request);
+                    requestQueue.add(request);
 
+                }
             }
         });
 

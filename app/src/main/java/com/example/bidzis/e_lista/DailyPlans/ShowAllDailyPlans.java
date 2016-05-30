@@ -1,4 +1,4 @@
-package com.example.bidzis.e_lista.User;
+package com.example.bidzis.e_lista.DailyPlans;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -21,7 +20,6 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bidzis.e_lista.R;
 
@@ -34,18 +32,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class ShowAllUsersActivity extends AppCompatActivity {
+public class ShowAllDailyPlans extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_all_users);
+        setContentView(R.layout.activity_show_all_daily_plans);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
         final JSONArray[] jsonArray = {null};
-        String url = getString(R.string.ip)+"/elista/uzytkownicy/pobierzWszystkich";
+        String url = getString(R.string.ip) + "/elista/dziennikplanow/pobierzWszystkie";
         JsonArrayRequest request = new JsonArrayRequest
-                        (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
@@ -53,11 +51,15 @@ public class ShowAllUsersActivity extends AppCompatActivity {
                         ArrayList<String> value = new ArrayList<>();
                         if (jsonArray[0] != null) {
                             int len = jsonArray[0].length();
-                            for (int i=0;i<len;i++){
+                            for (int i = 0; i < len; i++) {
                                 try {
                                     JSONObject jsonObject = (JSONObject) jsonArray[0].get(i);
 
-                                    value.add(i,jsonObject.get("id") +"\n"+ jsonObject.getString("imie")+" "+jsonObject.getString("nazwisko")+"\n"+"Status: "+jsonObject.getString("aktywnosc"));
+                                    value.add(i, jsonObject.get("id") + "\n"
+                                            + jsonObject.getString("dzienTygodnia")
+                                            + jsonObject.getString("planOd")
+                                            + jsonObject.getString("planDo")
+                                            + jsonObject.getString("techDate"));
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -66,38 +68,26 @@ public class ShowAllUsersActivity extends AppCompatActivity {
                         }
                         final ListView listview = (ListView) findViewById(R.id.listview);
                         Iterator it = value.iterator();
-
                         final ArrayList<String> list = new ArrayList<String>();
-                        while ( it.hasNext( ) ) {
+                        while (it.hasNext()) {
                             list.add((String) it.next());
                         }
-                        final StableArrayAdapter adapter = new StableArrayAdapter(ShowAllUsersActivity.this,
+                        final StableArrayAdapter adapter = new StableArrayAdapter(ShowAllDailyPlans.this,
                                 android.R.layout.simple_list_item_1, list);
+                        assert listview != null;
                         listview.setAdapter(adapter);
                         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                                 final ArrayList<Integer> help = new ArrayList<Integer>();
-                                for (int j = 0;j < 10;j++){
+                                for (int j = 0; j < 10; j++) {
                                     help.add(j);
                                 }
-
-//                                final String aTekst = ((TextView)view).getText().toString();
-//                                String aId = String.valueOf(aTekst.charAt(0));
-//                                for (int i = 1; i < aTekst.length();i++)
-//                                {
-//                                    if(aTekst.charAt(i)=='\n')
-//                                        break;
-//                                    if(help.contains(Integer.valueOf(String.valueOf(aTekst.charAt(i))))){
-//                                        aId = aId + String.valueOf(aTekst.charAt(i));
-//                                    }else break;
-//                                }
                             }
                         });
                     }
                 }, new Response.ErrorListener() {
-
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (error instanceof TimeoutError || error instanceof NoConnectionError) {
@@ -113,7 +103,7 @@ public class ShowAllUsersActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
                                     Toast.LENGTH_LONG).show();
                         } else if (error instanceof ParseError) {
-                            Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
+                            Toast.makeText(getApplicationContext(), "Błąd",
                                     Toast.LENGTH_LONG).show();
                         }
                     }

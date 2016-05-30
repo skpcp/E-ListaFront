@@ -54,11 +54,11 @@ public class SaveWorkTime extends AppCompatActivity {
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        String example = "{ \"dzien\": \"2016-05-12T18:58:00.837Z\", " +
+        String example = "{ \"dzien\": \"string\", " +
                 "\"id\": \"0\", " +
-                "\"rozpoczecie\": \"2016-05-12T18:58:00.837Z\", " +
+                "\"rozpoczecie\": \"string\", " +
                 "\"email\": \"string\", " +
-                "\"zakonczenie\": \"2016-05-12T18:58:00.837Z\", " +
+                "\"zakonczenie\": \"string\", " +
                 "\"zakresPracy\": \"string\", }";
 
         JSONObject workTimeSave = new JSONObject();

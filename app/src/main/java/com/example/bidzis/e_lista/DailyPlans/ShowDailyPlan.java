@@ -40,5 +40,6 @@ public class ShowDailyPlan extends AppCompatActivity {
                 ShowDailyPlan.this.startActivity(intent);
             }
         });
+
     }
 }

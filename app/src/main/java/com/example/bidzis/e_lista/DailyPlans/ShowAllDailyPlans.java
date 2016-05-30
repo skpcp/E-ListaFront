@@ -74,6 +74,7 @@ public class ShowAllDailyPlans extends AppCompatActivity {
                         }
                         final StableArrayAdapter adapter = new StableArrayAdapter(ShowAllDailyPlans.this,
                                 android.R.layout.simple_list_item_1, list);
+                        assert listview != null;
                         listview.setAdapter(adapter);
                         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override

@@ -37,7 +37,42 @@
         <activity android:name=".User.DeactivateUserActivity" />
         <activity android:name=".User.ActivateUserActivity" />
         <activity android:name=".User.ShowAllUsersActivity" />
-        <activity android:name=".User.ChangePasswordActivity"></activity>
+        <activity android:name=".User.ChangePasswordActivity"/>
+        <activity android:name=".WorkTime.DeleteWorkTime" />
+        <activity android:name=".WorkTime.ShowAllWorkTimes" />
+        <activity android:name=".WorkTime.ShowWorkTime" />
+        <activity android:name=".WorkTime.ShowWorkTimeResult" />
+        <activity android:name=".WorkTime.WorkTimeManagement" />
+        <activity android:name=".WorkTime.SaveWorkTime" />
+        <activity android:name=".WorkTime.SaveWorkTimeUsingPlan" />
+        <activity android:name=".DailyPlans.DailyPlansManagement" />
+        <activity android:name=".DailyPlans.ShowDailyPlan" />
+        <activity android:name=".DailyPlans.ShowAllDailyPlans" />
+        <activity android:name=".DailyPlans.SaveDailyPlan" />
+        <activity android:name=".DailyPlans.DeleteDailyPlan" />
+        <activity android:name=".DailyPlans.ShowDailyPlanResult"/>
+        <activity android:name=".Absence.ShowAllAbsence" />
+        <activity android:name=".Absence.AbsenceManagement" />
+        <activity android:name=".Absence.FindByDate" />
+        <activity android:name=".Absence.FindByUserID" />
+        <activity android:name=".Absence.FindByUserType" />
+        <activity android:name=".Absence.FindByType" />
+        <activity android:name=".Absence.Delete" />
+        <activity android:name=".Absence.SaveAbsence"/>
+        <activity android:name=".Group.GroupMenagmentActivity" />
+        <activity android:name=".Group.AddGroupActivity" />
+        <activity android:name=".Group.DeleteGroupActivity" />
+        <activity android:name=".Group.FindByIDActivity" />
+        <activity android:name=".Group.FindGbyNameActivity" />
+        <activity android:name=".Group.FindGbyLidersIDActivity" />
+        <activity android:name=".Group.FindGbyLidersEmailActivity" />
+        <activity android:name=".Role.RoleMainActivity" />
+        <activity android:name=".Role.FindAllRolesActivity" />
+        <activity android:name=".Role.EditRolesNameActivity" />
+        <activity android:name=".Role.FindRoleByNameActivity" />
+        <activity android:name=".Role.DeleteRoleActivity"></activity>
+
+
     </application>
 
 </manifest>

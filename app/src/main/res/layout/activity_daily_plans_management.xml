@@ -42,14 +42,4 @@
         android:layout_alignRight="@+id/btnShowAllDailyPlans"
         android:layout_alignEnd="@+id/btnShowAllDailyPlans" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Usuń Dziennik Panów"
-        android:id="@+id/btnDeleteDailyPlans"
-        android:layout_below="@+id/btnSaveDailyPlan"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btnSaveDailyPlan"
-        android:layout_alignEnd="@+id/btnSaveDailyPlan" />
 </RelativeLayout>

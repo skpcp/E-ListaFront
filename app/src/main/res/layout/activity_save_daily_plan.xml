@@ -63,14 +63,14 @@
         android:layout_below="@+id/tvPlanToSaveDailyPlan"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/etIdSaveDailyPlan"
-        android:layout_alignEnd="@+id/etIdSaveDailyPlan" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/tvEmailSaveDailyPlan"
+        android:text="Id Użytkownika"
+        android:id="@+id/tvUserIDSaveDailyPlan"
         android:layout_below="@+id/etPlanToSaveDailyPlan"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -78,8 +78,8 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etEmailSaveDailyPlan"
-        android:layout_below="@+id/tvEmailSaveDailyPlan"
+        android:id="@+id/etUserIdSaveDailyPlan"
+        android:layout_below="@+id/tvUserIDSaveDailyPlan"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/etPlanToSaveDailyPlan"
@@ -90,6 +90,7 @@
         android:layout_height="wrap_content"
         android:text="Zapisz"
         android:id="@+id/btnSaveSaveDailyPlan"
-        android:layout_below="@+id/etEmailSaveDailyPlan"
+        android:layout_below="@+id/etUserIdSaveDailyPlan"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

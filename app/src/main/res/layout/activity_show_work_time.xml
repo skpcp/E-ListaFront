@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Id"
+        android:text="Id Użytkownika"
         android:id="@+id/tvIdUserShowWorkTime" />
 
     <EditText
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dzień"
-        android:id="@+id/tvDayShowWorkTime" />
+        android:id="@+id/tvDayDayShowWorkTime" />
 
     <EditText
         android:layout_width="match_parent"
@@ -33,5 +33,29 @@
         android:text="Wyświetl"
         android:id="@+id/btnShowShowWorkTime"
         android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvDayShowWorkTime" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvStartShowWorkTime" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvFinishShowWorkTime" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvWorksDoneShowWorkTime" />
 
 </LinearLayout>

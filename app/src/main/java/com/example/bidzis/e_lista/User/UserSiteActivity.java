@@ -35,7 +35,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bidzis.e_lista.DailyPlans.DailyPlansManagement;
 import com.example.bidzis.e_lista.R;
+import com.example.bidzis.e_lista.WorkTime.WorkTimeManagement;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -264,7 +266,13 @@ public class UserSiteActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent intent  = new Intent(UserSiteActivity.this, UsersMenagmentActivity.class);
+            Intent intent = new Intent(UserSiteActivity.this, UsersMenagmentActivity.class);
+            UserSiteActivity.this.startActivity(intent);
+        }else if(id == R.id.nav_camera2) {
+            Intent intent = new Intent(UserSiteActivity.this, WorkTimeManagement.class);
+            UserSiteActivity.this.startActivity(intent);
+        }else if(id == R.id.nav_camera3) {
+            Intent intent = new Intent(UserSiteActivity.this, DailyPlansManagement.class);
             UserSiteActivity.this.startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 

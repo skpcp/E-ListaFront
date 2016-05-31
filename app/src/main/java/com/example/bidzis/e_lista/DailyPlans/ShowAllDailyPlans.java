@@ -42,7 +42,7 @@ public class ShowAllDailyPlans extends AppCompatActivity {
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
         final JSONArray[] jsonArray = {null};
         String url = getString(R.string.ip) + "/elista/dziennikplanow/pobierzWszystkie";
-        JsonArrayRequest request = new JsonArrayRequest
+        JsonArrayRequest request2 = new JsonArrayRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
@@ -54,20 +54,18 @@ public class ShowAllDailyPlans extends AppCompatActivity {
                             for (int i = 0; i < len; i++) {
                                 try {
                                     JSONObject jsonObject = (JSONObject) jsonArray[0].get(i);
-
-                                    value.add(i, jsonObject.get("id") + "\n"
-                                            + jsonObject.getString("dzienTygodnia")
-                                            + jsonObject.getString("planOd")
-                                            + jsonObject.getString("planDo")
-                                            + jsonObject.getString("techDate"));
+                                    JSONObject jsonObject1 = (JSONObject) jsonObject.get("uzytkownik");
+                                    value.add(i,"\n"+jsonObject.getString("dzienTygodnia") +"\n"+ jsonObject.getString("planOd")+" - "+jsonObject.getString("planDo")+"\n"
+                                    + jsonObject1.get("id")+ "\n" + jsonObject1.getString("imie") + "\n" + jsonObject1.getString("nazwisko") +"\n");
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
-                        final ListView listview = (ListView) findViewById(R.id.listview);
+                        final ListView listview = (ListView) findViewById(R.id.listView3);
                         Iterator it = value.iterator();
+
                         final ArrayList<String> list = new ArrayList<String>();
                         while (it.hasNext()) {
                             list.add((String) it.next());
@@ -84,10 +82,12 @@ public class ShowAllDailyPlans extends AppCompatActivity {
                                 for (int j = 0; j < 10; j++) {
                                     help.add(j);
                                 }
+
                             }
                         });
                     }
                 }, new Response.ErrorListener() {
+
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (error instanceof TimeoutError || error instanceof NoConnectionError) {
@@ -103,12 +103,13 @@ public class ShowAllDailyPlans extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
                                     Toast.LENGTH_LONG).show();
                         } else if (error instanceof ParseError) {
-                            Toast.makeText(getApplicationContext(), "Błąd",
+                            Toast.makeText(getApplicationContext(), "Nie znaleziono użytkownika w bazie",
                                     Toast.LENGTH_LONG).show();
                         }
                     }
                 });
-        requestQueue.add(request);
+        requestQueue.add(request2);
+
     }
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
@@ -136,3 +137,4 @@ public class ShowAllDailyPlans extends AppCompatActivity {
 
     }
 }
+

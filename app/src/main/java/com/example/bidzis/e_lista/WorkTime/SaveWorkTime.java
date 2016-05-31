@@ -1,13 +1,10 @@
 package com.example.bidzis.e_lista.WorkTime;
 
-import android.app.DownloadManager;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,9 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bidzis.e_lista.R;
-import com.google.android.gms.appdatasearch.GetRecentContextCall;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONException;
@@ -47,7 +41,7 @@ public class SaveWorkTime extends AppCompatActivity {
         final EditText etDay = (EditText) findViewById(R.id.etDayWorkTime);
         final EditText etId = (EditText) findViewById(R.id.etIdWorkTime);
         final EditText etStart = (EditText) findViewById(R.id.etStartWorkTime);
-        final EditText etEmail = (EditText) findViewById(R.id.etEmailWorkTime);
+        final EditText etUserId = (EditText) findViewById(R.id.etUserIdWorkTime);
         final EditText etFinish = (EditText) findViewById(R.id.etFinishWorkTime);
         final EditText etWorksDone = (EditText) findViewById(R.id.etWorksDoneWorkTime);
         final Button btSave = (Button) findViewById(R.id.btnSaveSaveWorkTime);
@@ -57,7 +51,7 @@ public class SaveWorkTime extends AppCompatActivity {
         String example = "{ \"dzien\": \"string\", " +
                 "\"id\": \"0\", " +
                 "\"rozpoczecie\": \"string\", " +
-                "\"email\": \"string\", " +
+                "\"uzytkownikId\": \"0\", " +
                 "\"zakonczenie\": \"string\", " +
                 "\"zakresPracy\": \"string\", }";
 
@@ -81,8 +75,8 @@ public class SaveWorkTime extends AppCompatActivity {
                     finalWorkTimeSave.put("id", etId.getText().toString());
                     assert etStart != null;
                     finalWorkTimeSave.put("rozpoczecie", etStart.getText().toString());
-                    assert etEmail != null;
-                    finalWorkTimeSave.put("email", etEmail.getText().toString());
+                    assert etUserId != null;
+                    finalWorkTimeSave.put("uzytkownikId", etUserId.getText().toString());
                     assert etFinish != null;
                     finalWorkTimeSave.put("zakonczenie", etFinish.getText().toString());
                     assert etWorksDone != null;

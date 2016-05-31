@@ -7,7 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bidzis.e_lista.R;
-public class FindRoleByNameActivity extends AppCompatActivity {
+public class
+FindRoleByNameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

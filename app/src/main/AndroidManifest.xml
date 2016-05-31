@@ -41,7 +41,6 @@
         <activity android:name=".WorkTime.DeleteWorkTime" />
         <activity android:name=".WorkTime.ShowAllWorkTimes" />
         <activity android:name=".WorkTime.ShowWorkTime" />
-        <activity android:name=".WorkTime.ShowWorkTimeResult" />
         <activity android:name=".WorkTime.WorkTimeManagement" />
         <activity android:name=".WorkTime.SaveWorkTime" />
         <activity android:name=".WorkTime.SaveWorkTimeUsingPlan" />
@@ -49,8 +48,6 @@
         <activity android:name=".DailyPlans.ShowDailyPlan" />
         <activity android:name=".DailyPlans.ShowAllDailyPlans" />
         <activity android:name=".DailyPlans.SaveDailyPlan" />
-        <activity android:name=".DailyPlans.DeleteDailyPlan" />
-        <activity android:name=".DailyPlans.ShowDailyPlanResult"/>
         <activity android:name=".Absence.ShowAllAbsence" />
         <activity android:name=".Absence.AbsenceManagement" />
         <activity android:name=".Absence.FindByDate" />

@@ -50,8 +50,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/tvEmailWorkTimeUP"
+        android:text="Id Użytkownika"
+        android:id="@+id/tvUserIdWorkTimeUP"
         android:layout_below="@+id/etIdWorkTimeUP"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -59,8 +59,8 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etEmailWorkTimeUP"
-        android:layout_below="@+id/tvEmailWorkTimeUP"
+        android:id="@+id/etUserIdWorkTimeUP"
+        android:layout_below="@+id/tvUserIdWorkTimeUP"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/etIdWorkTimeUP"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:text="Zakres Pracy"
         android:id="@+id/tvWorksDoneWorkTimeUP"
-        android:layout_below="@+id/etEmailWorkTimeUP"
+        android:layout_below="@+id/etUserIdWorkTimeUP"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -82,8 +82,8 @@
         android:layout_below="@+id/tvWorksDoneWorkTimeUP"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/etEmailWorkTimeUP"
-        android:layout_alignEnd="@+id/etEmailWorkTimeUP" />
+        android:layout_alignRight="@+id/etUserIdWorkTimeUP"
+        android:layout_alignEnd="@+id/etUserIdWorkTimeUP" />
 
     <Button
         android:layout_width="wrap_content"

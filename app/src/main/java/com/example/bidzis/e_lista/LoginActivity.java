@@ -104,11 +104,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "Loading", "Please wait...", true);
                 try {
-                    finalUserLogin.put("email", etLogin.getText().toString());
-                    assert etPassword != null;
-                    finalUserLogin.put("haslo", etPassword.getText().toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                        finalUserLogin.put("email", etLogin.getText().toString());
+                        assert etPassword != null;
+                        finalUserLogin.put("haslo", etPassword.getText().toString());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                 }
                 String url  = getString(R.string.ip) + "/elista/uzytkownicy/zaloguj";
                 JsonObjectRequest request = new JsonObjectRequest

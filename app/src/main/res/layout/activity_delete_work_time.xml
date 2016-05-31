@@ -8,18 +8,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wpisz Id"
-        android:id="@+id/textView4" />
+        android:id="@+id/tvIdDeleteWorkTime" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etId"
+        android:id="@+id/etIdDeleteWorkTime"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Usuń"
-        android:id="@+id/btnDeleteWorkTime"
+        android:id="@+id/btnDeleteDeleteWorkTime"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

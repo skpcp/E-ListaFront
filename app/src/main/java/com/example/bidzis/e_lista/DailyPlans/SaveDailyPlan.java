@@ -20,8 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bidzis.e_lista.R;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,19 +30,18 @@ public class SaveDailyPlan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_daily_plan);
-
         final EditText etId = (EditText) findViewById(R.id.etIdSaveDailyPlan);
         final EditText etPlanFrom = (EditText) findViewById(R.id.etPlanFromSaveDailyPlan);
         final EditText etPlanTo = (EditText) findViewById(R.id.etPlanToSaveDailyPlan);
-        final EditText etEmail = (EditText) findViewById(R.id.etEmailSaveDailyPlan);
+        final EditText etUserId = (EditText) findViewById(R.id.etUserIdSaveDailyPlan);
         final Button btSave = (Button) findViewById(R.id.btnSaveSaveDailyPlan);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        String example = "{\"id\": \"0\", " +
-                "\"planDo\": \"2016-05-12T18:58:00.837Z\", " +
-                "\"planOd\": \"2016-05-12T18:58:00.837Z\", " +
-                "\"email\": \"string\", }";
+        String example = "{ \"id\": \"0\", "+
+                "\"planDo\": \"string\", " +
+                "\"planOd\": \"string\", " +
+                "\"uzytkownikId\": \"0\" }";
 
         JSONObject dailyPlanSave = new JSONObject();
         try {
@@ -62,11 +59,11 @@ public class SaveDailyPlan extends AppCompatActivity {
                     assert etId != null;
                     finalDailyPlanSave.put("id", etId.getText().toString());
                     assert etPlanFrom != null;
-                    finalDailyPlanSave.put("rozpoczecie", etPlanFrom.getText().toString());
+                    finalDailyPlanSave.put("planOd", etPlanFrom.getText().toString());
                     assert etPlanTo != null;
-                    finalDailyPlanSave.put("zakonczenie", etPlanTo.getText().toString());
-                    assert etEmail != null;
-                    finalDailyPlanSave.put("email", etEmail.getText().toString());
+                    finalDailyPlanSave.put("planDo", etPlanTo.getText().toString());
+                    assert etUserId != null;
+                    finalDailyPlanSave.put("uzytkownikId", etUserId.getText().toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -75,7 +72,7 @@ public class SaveDailyPlan extends AppCompatActivity {
                         (Request.Method.POST, url, finalDailyPlanSave, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                Toast.makeText(getApplicationContext(), "Zapisano Czas Pracy",
+                                Toast.makeText(getApplicationContext(), "Zapisano Dziennik Planów",
                                         Toast.LENGTH_LONG).show();
                             }
                         },

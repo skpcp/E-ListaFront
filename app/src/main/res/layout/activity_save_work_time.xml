@@ -69,17 +69,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvEmailWorkTime"
+        android:id="@+id/tvUserIdWorkTime"
         android:layout_below="@+id/etStartWorkTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Email" />
+        android:text="Id Użytkownika" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etEmailWorkTime"
-        android:layout_below="@+id/tvEmailWorkTime"
+        android:id="@+id/etUserIdWorkTime"
+        android:layout_below="@+id/tvUserIdWorkTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/etStartWorkTime"
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:text="Zakończenie"
         android:id="@+id/tvFinishWorkTime"
-        android:layout_below="@+id/etEmailWorkTime"
+        android:layout_below="@+id/etUserIdWorkTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -101,8 +101,8 @@
         android:layout_below="@+id/tvFinishWorkTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/etEmailWorkTime"
-        android:layout_alignEnd="@+id/etEmailWorkTime" />
+        android:layout_alignRight="@+id/etUserIdWorkTime"
+        android:layout_alignEnd="@+id/etUserIdWorkTime" />
 
     <TextView
         android:layout_width="wrap_content"

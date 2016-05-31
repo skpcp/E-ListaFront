@@ -20,8 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bidzis.e_lista.R;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,15 +33,15 @@ public class SaveWorkTimeUsingPlan extends AppCompatActivity {
 
         final EditText etDay = (EditText) findViewById(R.id.etDayWorkTimeUP);
         final EditText etId = (EditText) findViewById(R.id.etIdWorkTimeUP);
-        final EditText etEmail = (EditText) findViewById(R.id.etEmailWorkTimeUP);
+        final EditText etUserId = (EditText) findViewById(R.id.etUserIdWorkTimeUP);
         final EditText etWorksDone = (EditText) findViewById(R.id.etWorksDoneWorkTimeUP);
         final Button btSave = (Button) findViewById(R.id.btnSaveSaveWorkTimeUP);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        String example = "{ \"dzien\": \"2016-05-12T18:58:00.837Z\", " +
+        String example = "{ \"dzien\": \"string\", " +
                 "\"id\": \"0\", " +
-                "\"email\": \"string\", " +
+                "\"uzytkownikId\": \"0\", " +
                 "\"zakresPracy\": \"string\", }";
 
         JSONObject workTimeSave = new JSONObject();
@@ -58,14 +56,14 @@ public class SaveWorkTimeUsingPlan extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = getString(R.string.ip) + "/elista/czasPracy/zapiszCzasPracy";
+                String url = getString(R.string.ip) + "/elista/czasPracy/zapiszCzasPracyWedlugPlanu";
                 try {
                     assert etDay != null;
                     finalWorkTimeSave.put("dzien", etDay.getText().toString());
                     assert etId != null;
                     finalWorkTimeSave.put("id", etId.getText().toString());
-                    assert etEmail != null;
-                    finalWorkTimeSave.put("email", etEmail.getText().toString());
+                    assert etUserId != null;
+                    finalWorkTimeSave.put("uzytkownikId", etUserId.getText().toString());
                     assert etWorksDone != null;
                     finalWorkTimeSave.put("zakresPracy", etWorksDone.getText().toString());
                 } catch (JSONException e) {

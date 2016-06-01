@@ -13,7 +13,7 @@
             android:title="Daily Plans Management" />
         <item
             android:id="@+id/nav_gallery"
-            android:title="Abstance" />
+            android:title="Absence" />
         <item
             android:id="@+id/nav_slideshow"
             android:title="Slideshow" />

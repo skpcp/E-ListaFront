@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">E-Lista</string>
 
-    <string name="ip">http://192.168.43.84:8080</string>
+    <string name="ip">http://192.168.43.221:8080</string>
     <string name="title_activity_user_site">UserSiteActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

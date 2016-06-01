@@ -35,6 +35,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bidzis.e_lista.Absence.AbsenceManagement;
 import com.example.bidzis.e_lista.R;
 
 import org.json.JSONArray;
@@ -267,7 +268,8 @@ public class UserSiteActivity extends AppCompatActivity
             Intent intent  = new Intent(UserSiteActivity.this, UsersMenagmentActivity.class);
             UserSiteActivity.this.startActivity(intent);
         } else if (id == R.id.nav_gallery) {
-
+            Intent intent  = new Intent(UserSiteActivity.this, AbsenceManagement.class);
+            UserSiteActivity.this.startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 

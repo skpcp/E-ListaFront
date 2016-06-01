@@ -9,4 +9,85 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.bidzis.e_lista.Absence.FindByDate">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Date"
+        android:id="@+id/tvDateAbsence"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find"
+        android:id="@+id/btnAbsenceFindDateAbsence"
+        android:layout_below="@+id/etAbsenceUserIDFindByDate"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/etDateAbsenceFind"
+        android:layout_below="@+id/tvDateAbsence"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="User ID"
+        android:id="@+id/tvAbsenceUserIDFindByDate"
+        android:layout_below="@+id/etDateAbsenceFind"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etAbsenceUserIDFindByDate"
+        android:layout_below="@+id/tvAbsenceUserIDFindByDate"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvAbsenceFindByDateData"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvAbsenceFindByDateID"
+        android:layout_below="@+id/tvAbsenceFindByDateData"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvAbsenceFindByDateTyp"
+        android:layout_below="@+id/tvAbsenceFindByDateID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvAbsenceFindByDateIlosc"
+        android:layout_below="@+id/tvAbsenceFindByDateTyp"
+        android:layout_toRightOf="@+id/tvAbsenceFindByDateTyp"
+        android:layout_toEndOf="@+id/tvAbsenceFindByDateTyp" />
 </RelativeLayout>

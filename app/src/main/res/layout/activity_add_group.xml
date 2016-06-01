@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Lider&apos;s Email"
+        android:text="Enter Lider&apos;s Id"
         android:id="@+id/tvEnterLidersEmail"
         android:layout_below="@+id/etEnterGroupsName"
         android:layout_alignParentLeft="true"

@@ -35,7 +35,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bidzis.e_lista.Group.GroupMenagmentActivity;
 import com.example.bidzis.e_lista.R;
+import com.example.bidzis.e_lista.Role.RoleMainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -269,10 +271,13 @@ public class UserSiteActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_group) {
+            Intent intent  = new Intent(UserSiteActivity.this, GroupMenagmentActivity.class);
+            UserSiteActivity.this.startActivity(intent);
 
         } else if (id == R.id.nav_manage) {
-
+            Intent intent  = new Intent(UserSiteActivity.this, RoleMainActivity.class);
+            UserSiteActivity.this.startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

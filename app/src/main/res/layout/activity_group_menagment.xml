@@ -73,4 +73,15 @@
         android:layout_below="@+id/btnFindGbyLidersID"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show All Group"
+        android:id="@+id/btnShowAllGroup"
+        android:layout_below="@+id/btnFindGbyLidersEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

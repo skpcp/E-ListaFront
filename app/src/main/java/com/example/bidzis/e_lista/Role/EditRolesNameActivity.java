@@ -2,6 +2,7 @@ package com.example.bidzis.e_lista.Role;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bidzis.e_lista.R;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 public class EditRolesNameActivity extends AppCompatActivity {
 
@@ -36,7 +38,25 @@ public class EditRolesNameActivity extends AppCompatActivity {
         final EditText etEnterNewRolesName = (EditText) findViewById(R.id.etEnterNewRolesName);
         final Button btnRoleSaveChanges = (Button) findViewById(R.id.btnRoleSaveChanges);
 
+        final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String jsonString = "{\n" +
+                "  \"id\": 0,\n" +
+                "  \"rolaDoZmiany\": \"string\"\n" +
+                "}";
+        JSONObject json = null;
+        try {
+            json = new JSONObject(jsonString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        final JSONObject finalJson = json;
+        assert btnRoleSaveChanges != null;
+        btnRoleSaveChanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
 
     }

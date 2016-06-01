@@ -57,7 +57,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         final EditText etEmail = (EditText) findViewById(R.id.etEmailUserRegister);
         final EditText etPassword = (EditText) findViewById(R.id.etPasswordRegisterUser);
 
-        final boolean[] flaga = {false};
+        final boolean[] flaga = {true};
         assert tvEmail != null;
 //        tvEmail.setVisibility(View.GONE);
         assert tvPassword != null;

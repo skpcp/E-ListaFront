@@ -16,16 +16,8 @@
         android:id="@+id/tvEnterLidersEmail"
         android:layout_below="@+id/tvFindGbyLidersEmial"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etEnterLidersEmial"
-        android:layout_below="@+id/tvFindGbyLidersEmial"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginTop="37dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -33,7 +25,10 @@
         android:text="Find"
         android:id="@+id/btnFindGbyLidersEmail"
         android:layout_below="@+id/etEnterLidersEmial"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/listview"
+        android:layout_alignEnd="@+id/listview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,4 +38,22 @@
         android:id="@+id/tvFindGbyLidersEmial"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etEnterLidersEmial"
+        android:layout_below="@+id/tvEnterLidersEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:editable="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/listview"
+        android:layout_below="@+id/btnFindGbyLidersEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border3"/>
 </RelativeLayout>

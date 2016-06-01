@@ -21,8 +21,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Role&apos;s Name "
-        android:id="@+id/tvEnterRolesNameToDelete"
+        android:text="Id"
+        android:id="@+id/tvIdDeleteRole"
         android:layout_below="@+id/tvDeleteRole"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -30,8 +30,8 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etEnterRolesNameToDelete"
-        android:layout_below="@+id/tvEnterRolesNameToDelete"
+        android:id="@+id/etIdDeleteRole"
+        android:layout_below="@+id/tvIdDeleteRole"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Delete"
         android:id="@+id/btnDeleteRole"
-        android:layout_below="@+id/etEnterRolesNameToDelete"
+        android:layout_below="@+id/etIdDeleteRole"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="83dp" />
 </RelativeLayout>

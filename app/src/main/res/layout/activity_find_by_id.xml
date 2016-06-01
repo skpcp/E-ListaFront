@@ -44,5 +44,39 @@
         android:text="Find"
         android:id="@+id/btnFindGbyID"
         android:layout_below="@+id/etEnterGroupID"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="ID"
+        android:id="@+id/tvIDGroupFindByID"
+        android:layout_below="@+id/btnFindGbyID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nazwa"
+        android:id="@+id/tvNameFindGroupByID"
+        android:layout_below="@+id/tvIDGroupFindByID"
+        android:layout_alignLeft="@+id/tvIDGroupFindByID"
+        android:layout_alignStart="@+id/tvIDGroupFindByID" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Lider"
+        android:id="@+id/tvLiderFindGruopByID"
+        android:layout_below="@+id/tvNameFindGroupByID"
+        android:layout_alignLeft="@+id/tvNameFindGroupByID"
+        android:layout_alignStart="@+id/tvNameFindGroupByID" />
+
 </RelativeLayout>

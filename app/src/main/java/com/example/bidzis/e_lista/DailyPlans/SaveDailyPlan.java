@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -36,9 +37,10 @@ public class SaveDailyPlan extends AppCompatActivity {
         final EditText etUserId = (EditText) findViewById(R.id.etUserIdSaveDailyPlan);
         final Button btSave = (Button) findViewById(R.id.btnSaveSaveDailyPlan);
 
-        final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        String example = "{ \"id\": \"0\", "+
+        final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final String stringPlanOdPattern = "[0-2]{1}[0-9]{1}\\:+[0-5]{1}[0-9]{1}";
+        String example = "{ \"id\": \"0\",  "+
                 "\"planDo\": \"string\", " +
                 "\"planOd\": \"string\", " +
                 "\"uzytkownikId\": \"0\" }";
@@ -49,56 +51,89 @@ public class SaveDailyPlan extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         assert btSave != null;
         final JSONObject finalDailyPlanSave = dailyPlanSave;
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = getString(R.string.ip) + "/elista/dziennikplanow/zapiszDziennikPlanow";
-                try {
-                    assert etId != null;
-                    finalDailyPlanSave.put("id", etId.getText().toString());
-                    assert etPlanFrom != null;
-                    finalDailyPlanSave.put("planOd", etPlanFrom.getText().toString());
-                    assert etPlanTo != null;
-                    finalDailyPlanSave.put("planDo", etPlanTo.getText().toString());
-                    assert etUserId != null;
-                    finalDailyPlanSave.put("uzytkownikId", etUserId.getText().toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                boolean flaga = false;
+                int licznik = 0;
+                if (etPlanTo.getText().toString().matches(stringPlanOdPattern)) {
+                    String elo = "";
+                    elo += etPlanFrom.getText().toString().charAt(0);
+                    elo += etPlanFrom.getText().toString().charAt(1);
+                    if (Integer.parseInt(elo) > 23) {
+                        flaga = false;
+                    } else {
+                        licznik++;
+                    }
                 }
+                if (etPlanFrom.getText().toString().matches(stringPlanOdPattern)) {
+                    String elo = "";
+                    elo += etPlanFrom.getText().toString().charAt(0);
+                    elo += etPlanFrom.getText().toString().charAt(1);
+                    if (Integer.parseInt(elo) > 23) {
+                        flaga = false;
+                    } else {
+                        licznik++;
+                    }
+                }
+                if (licznik == 2){
+                    flaga = true;
+                }
+                if (flaga) {
+                try {
+                    assert etPlanFrom != null;
 
-                JsonObjectRequest request = new JsonObjectRequest
-                        (Request.Method.POST, url, finalDailyPlanSave, new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                Toast.makeText(getApplicationContext(), "Zapisano Dziennik Planów",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        },
-                                new Response.ErrorListener() {
+                        assert etId != null;
+                        finalDailyPlanSave.put("id", etId.getText().toString());
+                        assert etPlanFrom != null;
+                        finalDailyPlanSave.put("planOd", etPlanFrom.getText().toString());
+                        assert etPlanTo != null;
+                        finalDailyPlanSave.put("planDo", etPlanTo.getText().toString());
+                        assert etUserId != null;
+                        finalDailyPlanSave.put("uzytkownikId", etUserId.getText().toString());
+                    }catch(JSONException e){
+                        e.printStackTrace();
+                    }
 
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                                            Toast.makeText(getApplicationContext(), "Timeout",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof AuthFailureError) {
-                                            Toast.makeText(getApplicationContext(), "1",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof ServerError) {
-                                            Toast.makeText(getApplicationContext(), "Bląd serwera",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof NetworkError) {
-                                            Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof ParseError) {
-                                            Toast.makeText(getApplicationContext(), "Błąd",
-                                                    Toast.LENGTH_LONG).show();
+                    JsonObjectRequest request = new JsonObjectRequest
+                            (Request.Method.POST, url, finalDailyPlanSave, new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Toast.makeText(getApplicationContext(), "Zapisano Dziennik Planów",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            },
+                                    new Response.ErrorListener() {
+
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                                                Toast.makeText(getApplicationContext(), "Timeout",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof AuthFailureError) {
+                                                Toast.makeText(getApplicationContext(), "1",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof ServerError) {
+                                                Toast.makeText(getApplicationContext(), "Bląd serwera",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof NetworkError) {
+                                                Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof ParseError) {
+                                                Toast.makeText(getApplicationContext(), "Błąd",
+                                                        Toast.LENGTH_LONG).show();
+                                            }
                                         }
-                                    }
-                                });
-                requestQueue.add(request);
+                                    });
+                    requestQueue.add(request);
+                }else {
+                    Toast.makeText(getApplicationContext(), "Nieprawidłowy format godziny",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

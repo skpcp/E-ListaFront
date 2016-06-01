@@ -61,61 +61,113 @@ public class SaveWorkTime extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        final String stringPlanOdPattern = "[0-2]{1}[0-9]{1}\\:+[0-5]{1}[0-9]{1}";
+        final String stringDataPattern = "[0-2]{1}[0-9]{1}[0-9]{1}[0-9]{1}\\-+[0-1]{1}[0-9]{1}\\-+[0-3]{1}[0-9]{1}";
         assert btSave != null;
         final JSONObject finalWorkTimeSave = workTimeSave;
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = getString(R.string.ip) + "/elista/czasPracy/zapiszCzasPracy";
-                try {
-                    assert etDay != null;
-                    finalWorkTimeSave.put("dzien", etDay.getText().toString());
-                    assert etId != null;
-                    finalWorkTimeSave.put("id", etId.getText().toString());
-                    assert etStart != null;
-                    finalWorkTimeSave.put("rozpoczecie", etStart.getText().toString());
-                    assert etUserId != null;
-                    finalWorkTimeSave.put("uzytkownikId", etUserId.getText().toString());
-                    assert etFinish != null;
-                    finalWorkTimeSave.put("zakonczenie", etFinish.getText().toString());
-                    assert etWorksDone != null;
-                    finalWorkTimeSave.put("zakresPracy", etWorksDone.getText().toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                boolean flaga = false;
+                boolean flaga2 = false;
+                int licznik = 0;
+                int licznik2 = 0;
+                if (etStart.getText().toString().matches(stringPlanOdPattern)) {
+                    String elo = "";
+                    elo += etStart.getText().toString().charAt(0);
+                    elo += etStart.getText().toString().charAt(1);
+                    if (Integer.parseInt(elo) > 23) {
+                        flaga = false;
+                    } else {
+                        licznik++;
+                    }
                 }
+                if (etFinish.getText().toString().matches(stringPlanOdPattern)) {
+                    String elo = "";
+                    elo += etFinish.getText().toString().charAt(0);
+                    elo += etFinish.getText().toString().charAt(1);
+                    if (Integer.parseInt(elo) > 23) {
+                        flaga = false;
+                    } else {
+                        licznik++;
+                    }
+                }
+                if (licznik == 2) {
+                    flaga = true;
+                }
+                if (etDay.getText().toString().matches(stringDataPattern)) {
+                    String elo = "";
+                    String elo2 = "";
+                    elo += etDay.getText().toString().charAt(5);
+                    elo += etDay.getText().toString().charAt(6);
+                    elo2 += etDay.getText().toString().charAt(8);
+                    elo2 += etDay.getText().toString().charAt(9);
 
-                JsonObjectRequest request = new JsonObjectRequest
-                        (Request.Method.POST, url, finalWorkTimeSave, new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                Toast.makeText(getApplicationContext(), "Zapisano Czas Pracy",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        },
-                                new Response.ErrorListener() {
+                    if (Integer.parseInt(elo) > 12) {
+                        flaga2 = false;
+                    } else {
+                        licznik2++;
+                    }
+                    if (Integer.parseInt(elo2) > 31) {
+                        flaga2 = false;
+                    } else {
+                        licznik2++;
+                    }
+                }
+                if (licznik == 2 && licznik2 == 2) {
+                    try {
+                        assert etDay != null;
+                        finalWorkTimeSave.put("dzien", etDay.getText().toString());
+                        assert etId != null;
+                        finalWorkTimeSave.put("id", etId.getText().toString());
+                        assert etStart != null;
+                        finalWorkTimeSave.put("rozpoczecie", etStart.getText().toString());
+                        assert etUserId != null;
+                        finalWorkTimeSave.put("uzytkownikId", etUserId.getText().toString());
+                        assert etFinish != null;
+                        finalWorkTimeSave.put("zakonczenie", etFinish.getText().toString());
+                        assert etWorksDone != null;
+                        finalWorkTimeSave.put("zakresPracy", etWorksDone.getText().toString());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                                            Toast.makeText(getApplicationContext(), "Timeout",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof AuthFailureError) {
-                                            Toast.makeText(getApplicationContext(), "1",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof ServerError) {
-                                            Toast.makeText(getApplicationContext(), "Bląd serwera",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof NetworkError) {
-                                            Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
-                                                    Toast.LENGTH_LONG).show();
-                                        } else if (error instanceof ParseError) {
-                                            Toast.makeText(getApplicationContext(), "Błąd",
-                                                    Toast.LENGTH_LONG).show();
+                    JsonObjectRequest request = new JsonObjectRequest
+                            (Request.Method.POST, url, finalWorkTimeSave, new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Toast.makeText(getApplicationContext(), "Zapisano Czas Pracy",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            },
+                                    new Response.ErrorListener() {
+
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                                                Toast.makeText(getApplicationContext(), "Timeout",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof AuthFailureError) {
+                                                Toast.makeText(getApplicationContext(), "1",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof ServerError) {
+                                                Toast.makeText(getApplicationContext(), "Bląd serwera",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof NetworkError) {
+                                                Toast.makeText(getApplicationContext(), "Problem z połączeniem internetowym",
+                                                        Toast.LENGTH_LONG).show();
+                                            } else if (error instanceof ParseError) {
+                                                Toast.makeText(getApplicationContext(), "Błąd",
+                                                        Toast.LENGTH_LONG).show();
+                                            }
                                         }
-                                    }
-                                });
-                requestQueue.add(request);
+                                    });
+                    requestQueue.add(request);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Nieprawidłowy format daty lub godziny",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
